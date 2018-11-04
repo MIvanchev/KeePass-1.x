@@ -1,7 +1,16 @@
 // This is a modified version of lallous CSendKeys class.
 // Edited by: Dominik Reichl
 
+#if _MSC_VER >= 1800
+#define NO_WARN_MBCS_MFC_DEPRECATION
+#endif
+
 #include "../StdAfx.h"
+
+#if _MSC_VER >= 1800
+#undef NO_WARN_MBCS_MFC_DEPRECATION
+#endif
+
 #include "SendKeys.h"
 
 /*
@@ -221,7 +230,16 @@ void CSendKeys::SendKeyDown(BYTE VKey, WORD NumTimes, bool GenUpMsg, bool bDelay
 
   if (VKey == VK_NUMLOCK)
   {
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
     DWORD dwVersion = ::GetVersion();
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
 
     for (Cnt=1; Cnt<=NumTimes; Cnt++)
     {

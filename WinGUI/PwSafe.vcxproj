@@ -209,7 +209,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
@@ -218,6 +218,7 @@
       <RandomizedBaseAddress />
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -254,7 +255,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
@@ -301,7 +302,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
@@ -348,7 +349,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
@@ -394,7 +395,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -440,7 +441,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -485,7 +486,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
@@ -493,6 +494,7 @@
       <RandomizedBaseAddress />
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -529,7 +531,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;gdiplus.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePass.exe</OutputFile>
+      <OutputFile>$(OutDir)PwSafe.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>

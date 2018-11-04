@@ -24,7 +24,17 @@
 
 #include "../../KeePassLibCpp/SysDefEx.h"
 #include "../../KeePassLibCpp/Util/StrUtil.h"
+
+#if _MSC_VER >= 1900
+#pragma warning(push)
+#pragma warning(disable:4458)
+#endif
+
 #include <gdiplus.h>
+
+#if _MSC_VER >= 1900
+#pragma warning(pop)
+#endif
 
 // CQualityProgressCtrl
 

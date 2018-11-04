@@ -91,14 +91,35 @@ Win32Type IsShellType()
 	DWORD winVer;
 	OSVERSIONINFO *osvi;
 
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 	winVer=GetVersion();
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
 	if(winVer<0x80000000){/*NT */
 		ShellType=WinNT3;
 		osvi= (OSVERSIONINFO *)malloc(sizeof(OSVERSIONINFO));
 		if (osvi!=NULL){
 			memset(osvi,0,sizeof(OSVERSIONINFO));
 			osvi->dwOSVersionInfoSize=sizeof(OSVERSIONINFO);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 			GetVersionEx(osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
 			if(osvi->dwMajorVersion==4L)ShellType=WinNT4;
 			else if(osvi->dwMajorVersion==5L&&osvi->dwMinorVersion==0L)ShellType=Win2000;
 			else if(osvi->dwMajorVersion==5L&&osvi->dwMinorVersion==1L)ShellType=WinXP;
@@ -113,7 +134,18 @@ Win32Type IsShellType()
 		if (osvi!=NULL){
 			memset(osvi,0,sizeof(OSVERSIONINFO));
 			osvi->dwOSVersionInfoSize=sizeof(OSVERSIONINFO);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 			GetVersionEx(osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
 			if(osvi->dwMajorVersion==4L&&osvi->dwMinorVersion==10L)ShellType=Win98;
 			else if(osvi->dwMajorVersion==4L&&osvi->dwMinorVersion==90L)ShellType=WinME;
 			free(osvi);

@@ -332,7 +332,18 @@ CColourPickerXP::CColourPickerXP(void):
 {
 	OSVERSIONINFO osvi;
 	osvi.dwOSVersionInfoSize = sizeof (osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 	::GetVersionEx (&osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
 	bool bIsXP = osvi.dwPlatformId == VER_PLATFORM_WIN32_NT &&
 		(osvi.dwMajorVersion > 5 || (osvi.dwMajorVersion == 5 &&
 		osvi.dwMinorVersion >= 1));
@@ -1182,7 +1193,18 @@ void CColourPopupXP::Initialise()
 
 	OSVERSIONINFO osvi;
 	osvi.dwOSVersionInfoSize = sizeof (osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 	::GetVersionEx (&osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
 	m_bIsXP = osvi.dwPlatformId == VER_PLATFORM_WIN32_NT &&
 		(osvi.dwMajorVersion > 5 || (osvi.dwMajorVersion == 5 &&
 		osvi.dwMinorVersion >= 1));

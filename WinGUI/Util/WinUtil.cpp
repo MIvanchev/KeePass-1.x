@@ -977,7 +977,17 @@ BOOL WU_SupportsMultiLineTooltips()
 	OSVERSIONINFO osvi;
 	ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
 	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 	GetVersionEx(&osvi);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
 
 	return (((osvi.dwMajorVersion >= 5) && (osvi.dwMinorVersion >= 1)) ?
 		TRUE : FALSE);

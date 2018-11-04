@@ -171,7 +171,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePassLibC32.dll</OutputFile>
+      <OutputFile>$(OutDir)KeePassLibC.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\KeePassLib.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>$(IntDir)KeePassLibC.pdb</ProgramDatabaseFile>
@@ -263,7 +263,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePassLibC32.dll</OutputFile>
+      <OutputFile>$(OutDir)KeePassLibC.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\KeePassLib.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -273,6 +273,7 @@
       <DataExecutionPrevention />
       <ImportLibrary>$(IntDir)KeePassLibC.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+	  <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -357,7 +358,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)KeePassLibC32.dll</OutputFile>
+      <OutputFile>$(OutDir)KeePassLibC.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\KeePassLib.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>$(IntDir)KeePassLibC.pdb</ProgramDatabaseFile>

@@ -88,7 +88,17 @@ void CQualityProgressCtrl::OnPaint()
 
 	// Workaround for Windows <= XP
 	Rect rectGrad(rectDraw.X, rectDraw.Y, rectDraw.Width, rectDraw.Height);
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
 	if((::GetVersion() & 0xFF) < 6) rectGrad.Inflate(1, 0);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
 
 	LinearGradientBrush brGrad(rectGrad, clrStart, clrEnd, LinearGradientModeHorizontal);
 	pg->FillRectangle(&brGrad, rectDraw.X, rectDraw.Y, nDrawWidth, rectDraw.Height);

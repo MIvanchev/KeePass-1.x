@@ -21,7 +21,17 @@
 #define ___NEW_COLORIZER_EX_H___
 
 #include <windows.h>
+
+#if _MSC_VER >= 1900
+#pragma warning(push)
+#pragma warning(disable:4458)
+#endif
+
 #include <gdiplus.h>
+
+#if _MSC_VER >= 1900
+#pragma warning(pop)
+#endif
 
 float NewGUI_GetHue(COLORREF clr);
 void NewGUI_ColorToHsv(COLORREF clr, float* pfHue, float* pfSaturation,

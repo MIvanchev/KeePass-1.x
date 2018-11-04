@@ -159,7 +159,18 @@ void CSystemTray::Initialise()
 
 #ifdef SYSTEMTRAY_USEW2K
     OSVERSIONINFO os = { sizeof(os) };
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
     GetVersionEx(&os);
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
     m_bWin2K = ( VER_PLATFORM_WIN32_NT == os.dwPlatformId && os.dwMajorVersion >= 5 );
 #else
     m_bWin2K = FALSE;
@@ -197,8 +208,19 @@ BOOL CSystemTray::Create(CWnd* pParent, UINT uCallbackMessage, LPCTSTR szToolTip
 #ifdef _WIN32_WCE
     m_bEnabled = TRUE;
 #else
+
+#if _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable:4996)
+#endif
+
     // this is only for Windows 95 (or higher)
     m_bEnabled = (GetVersion() & 0xff) >= 4;
+
+#if _MSC_VER >= 1800
+#pragma warning(pop)
+#endif
+
     if (!m_bEnabled) 
     {
         ASSERT(FALSE);

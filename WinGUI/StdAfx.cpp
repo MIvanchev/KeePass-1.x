@@ -17,4 +17,12 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+#if _MSC_VER >= 1800
+#define NO_WARN_MBCS_MFC_DEPRECATION
+#endif
+
 #include "StdAfx.h"
+
+#if _MSC_VER >= 1800
+#undef NO_WARN_MBCS_MFC_DEPRECATION
+#endif
