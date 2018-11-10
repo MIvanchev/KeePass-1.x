@@ -1,0 +1,57 @@
+version: 1.0.{build}
+image: Visual Studio 2015
+
+clone_depth: 1
+
+platform:
+    - Win32
+
+configuration:
+    - Debug Unicode
+    - Release Unicode
+    - Debug
+    - Release
+
+environment:
+    DepsDir: c:\projects\deps
+    BoostMajor: 1
+    BoostMinor: 58
+    BoostPatch: 0
+    BoostVerUnderscore: $(BoostMajor)_$(BoostMinor)_$(BoostPatch)
+    BoostVerDot: $(BoostMajor).$(BoostMinor).$(BoostPatch)
+    BoostBase: boost_$(BoostVerUnderscore)
+    BoostArchive: $(BoostBase).7z
+    BoostUrl: https://sourceforge.net/projects/boost/files/boost/$(BoostVerDot)/$(BoostArchive)/download
+    BoostDir: %DepsDir%\%BoostBase%
+    NoCache: 1
+
+cache:
+    - %BoostDir%\bin.v2 -> appveyor.yml
+    - %BoostDir%\boost -> appveyor.yml
+
+install:
+    - if exist %BoostDir%\bin.v2 if exist %BoostDir%\boost set NoCache=0
+    - if %NoCache% equ 1 if exist %BoostDir% rmdir /S /Q %BoostDir%
+    - if %NoCache% equ 1 appveyor DownloadFile "%BoostUrl%" -FileName "%TEMP%\%BoostArchive%"
+    - if %NoCache% equ 1 7z x -o%DepsDir% "%TEMP%\%BoostArchive%"
+    - if %NoCache% equ 1 del "%TEMP%\%BoostArchive%"
+    - if %NoCache% equ 1 cd %BoostDir%
+    - if %NoCache% equ 1 bootstrap
+    - if %NoCache% equ 1 b2 --with-regex toolset=msvc-14.0 --build-type=complete link=static runtime-link=static threading=multi architecture=arm cxxflags=/D_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1
+    - if %NoCache% equ 1 b2 --with-regex toolset=msvc-14.0 --build-type=complete link=static runtime-link=static threading=multi architecture=x86 address-model=32
+    - if %NoCache% equ 1 b2 --with-regex toolset=msvc-14.0 --build-type=complete link=static runtime-link=static threading=multi architecture=x86 address-model=64
+    - if %NoCache% equ 1 (cd bin.v2 && del /S *.obj *.rsp)
+    - if "%platform%"=="x64" set archi=amd64
+    - if "%platform%"=="Win32" set archi=x86
+    - if "%platform%"=="ARM" set archi=x86_arm
+    - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %archi%
+
+build:
+    verbosity: minimal
+
+build_script:
+    - set UseEnv=true
+    - set INCLUDE=%BoostDir%;%INCLUDE%
+    - set LIB=%BoostDir%\bin.v2\libs\regex\build\msvc-14.0;%LIB%
+    - cd c:\projects\KeePass-1.x
+    - msbuild KeePass.sln /p:configuration="%configuration%" /p:platform="%platform%" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
